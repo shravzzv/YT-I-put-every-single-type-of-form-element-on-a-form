@@ -64,6 +64,7 @@ form {
     border-width: 2px;
     border-color: var(--on-surface);
     padding: 10px 20px;
+    border-radius: 20px;
     min-width: min(80vw, 550px);
 
     @media (prefers-color-scheme: dark) {
