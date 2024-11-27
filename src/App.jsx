@@ -5,7 +5,6 @@ import Section3 from './components/Section3'
 import Section4 from './components/Section4'
 
 function App() {
-  0
   const [level, setLevel] = useState(0)
   const [data, setData] = useState({
     text: '',
