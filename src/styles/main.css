@@ -4,7 +4,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  border: 2px solid gold;
   border-radius: 15px;
 }
 
@@ -43,6 +42,7 @@ body {
   min-height: 100vh;
   background: var(--body-bg);
   padding: 0 20px;
+  color-scheme: light dark;
 }
 
 button {
@@ -52,6 +52,7 @@ button {
   cursor: pointer;
   transition: transform 300ms ease;
   margin-right: 5px;
+  margin-top: 10px;
 
   &:hover {
     transform: scale(1.1);
@@ -59,22 +60,60 @@ button {
 }
 
 form {
+  fieldset {
+    font-weight: bold;
+    border-width: 2px;
+    border-color: var(--on-surface);
+    padding: 10px 20px;
+    min-width: min(80vw, 550px);
+
+    @media (prefers-color-scheme: dark) {
+      border-width: 4px;
+    }
+  }
+
   .formControl {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     gap: 5px;
-    margin: 5px 0;
+    margin: 10px 0;
 
     label {
-      font-weight: bold;
+      font-weight: 500;
     }
 
-    input {
+    input,
+    textarea {
       padding: 5px 10px;
       border: none;
       border-radius: 5px;
       background-color: var(--surface-container);
+      color: black;
+      width: 100%;
+      resize: vertical;
+    }
+
+    &:has([type='checkbox']),
+    &:has([type='range']),
+    &:has([type='file']),
+    &:has(select),
+    &:has([type='radio']) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin-bottom: 10px;
+
+      input {
+        cursor: pointer;
+      }
     }
   }
+}
+
+select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px 0;
 }
